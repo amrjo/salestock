@@ -11,9 +11,10 @@ def sort_age(input_file_path, output_file_path):
 	age_data = f.read()
 	f.close()
 
-	f = open(output_file_path, 'a')
+	f = open(output_file_path, 'w+')
 	# since we're focused on execution time, I prefer using built-in function to sorting rather make own function.
 	f.writelines(map(lambda x: x+'\n', sorted(age_data.strip(' \n').split('\n'), key=int)))
 	f.close()
 if __name__ == '__main__':
 	sort_age(args.input, args.output)
+	print('Sorting Done, Please check for {} in this directory'.format(args.output))
